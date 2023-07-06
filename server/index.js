@@ -9,7 +9,12 @@ const messagesRoute = require("./routes/messagesRoute");
 const app = express();
 require("dotenv").config();
 
-app.use(cors({ origin: "https://react-chat-app-pink-ten.vercel.app" }));
+app.use((req, res, next) => {
+    res.setHeader("Access-Control-Allow-Origin", "https://react-chat-app-pink-ten.vercel.app");
+    res.setHeader("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE");
+    res.setHeader("Access-Control-Allow-Headers", "Content-Type");
+    next();
+  });
 app.use(express.json());
 
 app.use("/api/auth",userRoutes)
