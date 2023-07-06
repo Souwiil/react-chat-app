@@ -33,7 +33,6 @@ const ChatInput = ({handleSendMsg}) => {
   
 
   return (
-    
     <div className=" fixed bottom-20  w-3/5  flex  items-center justify-center gap-4 rounded-lg  p-0 sm:p-8 pb-1">
       <div className="flex items-center text-white gap-4">
         <div className="relative text-red-300 cursor-pointer text-3xl ">
