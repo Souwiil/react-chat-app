@@ -45,7 +45,6 @@ module.exports.login = async (req,res,next) => {
     return res.json({msg:"Incorrect username or password", status: false });
     const token = jwt.sign({ userId: user._id }, process.env.JWT_SECRET);
     
-
     return res.json({ status: true, user, token });
   } catch (ex) {
     next(ex);
