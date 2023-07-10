@@ -11,7 +11,8 @@ require("dotenv").config();
 
 app.use(cors({
     origin: "https://react-chat-app-pink-ten.vercel.app",
-    credentials: true
+    credentials: true,
+    methods: ["GET", "POST"]
   }));
 app.use(express.json());
 
