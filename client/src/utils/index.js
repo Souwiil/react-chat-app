@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const api = axios.create({
-  baseURL: 'http://jordan-olanier-server.eddi.cloud/projet-sharewin-back/public/api' 
+  baseURL: 'https://react-chat-app-smwr.onrender.com' 
 })
 
 const token = localStorage.getItem('token');

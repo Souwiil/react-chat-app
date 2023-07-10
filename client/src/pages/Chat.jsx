@@ -6,6 +6,7 @@ import { allUsersRoute, host } from "../utils/API";
 import Welcome from "../components/Welcome";
 import ChatContainer from "../components/ChatContainer";
 import { io } from "socket.io-client";
+import api from "../utils/index"
 
 
 // Todo Mettre le serveur sokcet.io ici un seul appele  
@@ -45,7 +46,7 @@ const Chat = () => {
     const fetchData = async () => {
       if (currentUser) {
         if (currentUser.isAvatarImageSet) {
-          const data = await axios.get(`${allUsersRoute}/${currentUser._id}`);
+          const {data} = await api.get(`${allUsersRoute}/${currentUser._id}`);
           setContacts(data.data);
         } else {
           navigate("/avatar");
