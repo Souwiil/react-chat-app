@@ -34,7 +34,8 @@ const server = app.listen(process.env.PORT,()=>{
 
 const io = socket(server,{
     cors: {
-        origin: "https://react-chat-app-pink-ten.vercel.app",
+        // Si je veux plusieurs url je peux mettre un tableaux [], sinon je peux mettre "*" pour que ce soit la fete.
+        origin: "https://react-chat-app-pink-ten.vercel.app/",
         Credentials: true
     }
 });

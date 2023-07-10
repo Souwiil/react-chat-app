@@ -40,7 +40,7 @@ const Contacts = ({contacts, currentUser, changeChat}) => {
     <>
       {currentUserImage && currentUserName && (
         <div className="lg:grid lg:grid-rows-[10%,75% 20%]  overflow-hidden rounded-lg border-none lg:w-4/12 w-48 bg-[#b1a29d]">
-          <div className="flex flex-col items-center justify-center mt-2">
+          <div className="flex flex-col items-center justify-center">
             <img className="h-10 sm:h-14" src={Logo} alt="logo" />
             <h3 className="text-zinc-950 lg:text-xl text-base font-bold uppercase">
               TAKUCHAT

@@ -1,5 +1,6 @@
 const User = require ("../model/userModel");
 const brcypt = require("bcrypt");
+const jwt = require("jsonwebtoken");
 
 //-------------------------------------- Inscrpition---------------------------------------------------
 
@@ -19,11 +20,13 @@ module.exports.register = async (req,res,next) => {
         email,
         password: hashedPassword,
     });
-    delete user.password;
-    return res.json({ status: true, user });
-   } catch(ex) {
+    const token = jwt.sign({ userId: user._id }, process.env.JWT_SECRET);
+    
+
+    return res.json({ status: true, user, token });
+  } catch (ex) {
     next(ex);
-   }
+  }
 };
 
 //-------------------------------------- Inscrpition---------------------------------------------------
@@ -40,11 +43,13 @@ module.exports.login = async (req,res,next) => {
     const isPasswordValid = await brcypt.compare(password,user.password);
     if(!isPasswordValid)
     return res.json({msg:"Incorrect username or password", status: false });
-    delete user.password;
-    return res.json({ status: true, user });
-   } catch(ex) {
+    const token = jwt.sign({ userId: user._id }, process.env.JWT_SECRET);
+    
+
+    return res.json({ status: true, user, token });
+  } catch (ex) {
     next(ex);
-   }
+  }
 
 };
 //-------------------------------------- Ce Connecter---------------------------------------------------

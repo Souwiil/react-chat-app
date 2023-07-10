@@ -7,6 +7,9 @@ import Welcome from "../components/Welcome";
 import ChatContainer from "../components/ChatContainer";
 import { io } from "socket.io-client";
 
+
+// Todo Mettre le serveur sokcet.io ici un seul appele  
+
 const Chat = () => {
   const socket = useRef();
   const navigate = useNavigate();
@@ -28,8 +31,11 @@ const Chat = () => {
     checkUser();
   }, []);
 
+  // Todo faire le socket io en dehors de mon composant 
+
   useEffect(() => {
     if (currentUser) {
+      //Io (host) permet de communiqué le serveur 
       socket.current = io(host);
       socket.current.emit("add-user", currentUser._id);
     }

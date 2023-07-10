@@ -63,7 +63,7 @@ const ChatContainer = ({ currentChat, currentUser, socket }) => {
     <>
       {currentChat && currentUser && (
         <div className="p-4 w-full  gap-[0.1rem] overflow-hidden">
-          <div className="flex justify-between border-b-4 mb-2 border-pink-200 items-center px-8">
+          <div className="flex justify-between border-b-4 mb-4 border-pink-200 items-center px-8">
             <div className="flex items-center gap-4 mb-2">
               <div className="avatar">
                 <img
